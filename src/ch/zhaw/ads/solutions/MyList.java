@@ -16,24 +16,20 @@ public class MyList extends AbstractList {
 
     public boolean add(Object o) {
         Node newNode = new Node(o);
-        if (isEmpty()) {
-            head = newNode;
-            newNode.next = newNode;
-            newNode.prev = newNode;
-        } else {
-            Node tail = head.prev;
-            newNode.prev = tail;
-            tail.next = newNode;
+        Node tail = head.prev;
 
-            newNode.next = head;
-            head.prev = newNode;
-        }
+        newNode.prev = tail;
+        tail.next = newNode;
+
+        newNode.next = head;
+        head.prev = newNode;
+
         size++;
         return true;
     }
 
     public boolean remove(Object obj) {
-        Node node = head;
+        Node node = head.next;
         for (int i = 0; i < size; i++) {
             if (Objects.equals(obj, node.data)) {
                 node.prev.next = node.next;
@@ -47,7 +43,7 @@ public class MyList extends AbstractList {
     }
 
     public Object get(int pos) {
-        Node node = head;
+        Node node = head.next;
         for (int i = 0; i < size; i++) {
             if (i == pos) {
                 return node.data;
