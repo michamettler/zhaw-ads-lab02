@@ -34,7 +34,7 @@ public class MyList extends AbstractList {
 
     public boolean remove(Object obj) {
         Node node = head;
-        for (int i = size-1; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (Objects.equals(obj, node.data)) {
                 node.prev.next = node.next;
                 node.next.prev = node.prev;
