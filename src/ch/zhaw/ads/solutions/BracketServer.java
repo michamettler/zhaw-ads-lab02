@@ -21,7 +21,7 @@ public class BracketServer implements CommandExecutor {
                 if (isOpenBracket(c)) {
                     bracketStack.push(c);
                 } else {
-                    if (getMatchingBracket(bracketStack.peek().toString()).equals(c)) {
+                    if (bracketStack.peek() != null && getMatchingBracket(bracketStack.peek().toString()).equals(c)) {
                         bracketStack.pop();
                     } else {
                         return false;

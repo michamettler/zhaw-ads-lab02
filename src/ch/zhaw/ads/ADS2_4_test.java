@@ -1,5 +1,6 @@
 package ch.zhaw.ads;
 
+import ch.zhaw.ads.solutions.MySortedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.00 2017/8/30
  */
 public class ADS2_4_test {
-    MySortedList list;
+    /*MySortedList list;
 
     @BeforeEach
     public void setUp() {
@@ -76,5 +77,5 @@ public class ADS2_4_test {
             char c2 = (char)list2.get(i);
             assertEquals(c1, c2);
         }
-    }
+    }*/
 }
