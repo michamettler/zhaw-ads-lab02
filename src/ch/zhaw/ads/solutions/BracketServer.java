@@ -33,11 +33,11 @@ public class BracketServer implements CommandExecutor {
     }
 
     private boolean isBracket(String c) {
-        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals(")") || c.equals("}") || c.equals("]");
+        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals("<") || c.equals(")") || c.equals("}") || c.equals("]") || c.equals(">");
     }
 
     private boolean isOpenBracket(String c) {
-        return c.equals("(") || c.equals("{") || c.equals("[");
+        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals("<");
     }
 
     private String getMatchingBracket(String s) {
@@ -47,7 +47,9 @@ public class BracketServer implements CommandExecutor {
             case "(" -> ")";
             case ")" -> "(";
             case "[" -> "]";
-            case "]" -> "ü";
+            case "]" -> "[";
+            case "<" -> ">";
+            case ">" -> "<";
             default -> throw new IllegalStateException("Invalid bracket: " + s);
         };
     }

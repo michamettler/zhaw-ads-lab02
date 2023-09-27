@@ -28,5 +28,7 @@ public class ADS1_3_test {
         test("[({3 +3)* 35} +3]* {3 +2}", false);
         test("(", false);
         test(")", false);
+        test("<(<>)>", true);
+        test("<(<)>>", false);
     }
 }
