@@ -18,7 +18,6 @@ public class MySortedList extends MyList2 implements Comparator {
             if (compare(o, get(i)) <= 0) {
                 currentNode.prev = newNode;
                 prevNode.next = newNode;
-                nextNode.prev = newNode;
 
                 newNode.prev = prevNode;
                 newNode.next = currentNode;
