@@ -12,7 +12,6 @@ public class MySortedList extends MyList2 implements Comparator {
 
         Node prevNode = head;
         Node currentNode = head.next;
-        Node nextNode = currentNode.next;
 
         for (int i = 0; i < size; i++) {
             if (compare(o, get(i)) <= 0) {
@@ -26,7 +25,6 @@ public class MySortedList extends MyList2 implements Comparator {
             } else {
                 prevNode = currentNode;
                 currentNode = currentNode.next;
-                nextNode = currentNode.next;
             }
         }
 
