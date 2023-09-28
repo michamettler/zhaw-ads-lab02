@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class MyList extends AbstractList {
 
-    private Node head;
-    private int size = 0;
+    Node head;
+    int size = 0;
 
     public MyList() {
         head = new Node(null);
