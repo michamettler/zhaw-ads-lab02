@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.00 2017/8/30
  */
 public class ADS2_4_test {
-    /*MySortedList list;
+    MySortedList list;
 
     @BeforeEach
     public void setUp() {
@@ -47,10 +47,24 @@ public class ADS2_4_test {
         list.clear();
         list.add("C");
         list.add("B");
+        list.add("Z");
         list.add("A");
+        list.add("A");
+        list.add("E");
+        list.add("A");
+        list.add("F");
+        list.add("A");
+        list.add("Y");
         assertEquals("A", list.get(0));
-        assertEquals("B", list.get(1));
-        assertEquals("C", list.get(2));
+        assertEquals("A", list.get(1));
+        assertEquals("A", list.get(2));
+        assertEquals("A", list.get(3));
+        assertEquals("B", list.get(4));
+        assertEquals("C", list.get(5));
+        assertEquals("E", list.get(6));
+        assertEquals("F", list.get(7));
+        assertEquals("Y", list.get(8));
+        assertEquals("Z", list.get(9));
     }
 
     @Test
@@ -77,5 +91,5 @@ public class ADS2_4_test {
             char c2 = (char)list2.get(i);
             assertEquals(c1, c2);
         }
-    }*/
+    }
 }
