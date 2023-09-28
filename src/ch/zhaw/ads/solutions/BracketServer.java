@@ -16,12 +16,12 @@ public class BracketServer implements CommandExecutor {
 
         String[] split = s.split("");
 
-        for (String c : split) {
-            if (isBracket(c)) {
-                if (isOpenBracket(c)) {
-                    bracketStack.push(c);
-                } else {
-                    if (!bracketStack.isEmpty() && getMatchingBracket(bracketStack.peek().toString()).equals(c)) {
+        for (int i = 0; i < split.length; i++) {
+            if (isBracket(split[i])) {
+                if (isOpenBracket(split[i]) || (split[i].equals("/") && (i != split.length-1) && split[i+1].equals("*"))) {
+                    bracketStack.push(split[i]);
+                } else if (isClosingBracket(split[i]) || (split[i].equals("/") && split[i-1].equals("*"))){
+                    if (!bracketStack.isEmpty() && getMatchingBracket(bracketStack.peek().toString()).equals(split[i])) {
                         bracketStack.pop();
                     } else {
                         return false;
@@ -33,12 +33,16 @@ public class BracketServer implements CommandExecutor {
     }
 
     private boolean isBracket(String c) {
-        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals("<") || c.equals("/*")
-                || c.equals(")") || c.equals("}") || c.equals("]") || c.equals(">") || c.equals("*/");
+        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals("<") || c.equals("/")
+                || c.equals(")") || c.equals("}") || c.equals("]") || c.equals(">");
     }
 
     private boolean isOpenBracket(String c) {
-        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals("<") || c.equals("/*");
+        return c.equals("(") || c.equals("{") || c.equals("[") || c.equals("<");
+    }
+
+    private boolean isClosingBracket(String c) {
+        return c.equals(")") || c.equals("}") || c.equals("]") || c.equals(">");
     }
 
     private String getMatchingBracket(String s) {
@@ -51,7 +55,7 @@ public class BracketServer implements CommandExecutor {
             case "]" -> "[";
             case "<" -> ">";
             case ">" -> "<";
-            case "/*" -> "*/";
+            case "/" -> "/";
             default -> throw new IllegalStateException("Invalid bracket: " + s);
         };
     }
